@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohit Aman | QA Engineer</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(10px);
+    }
+
+    nav h2{
+      color:#00f7ff;
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#00f7ff;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#00f7ff;
+      filter:blur(200px);
+      opacity:0.15;
+      border-radius:50%;
+      z-index:-1;
+    }
+
+    .hero-content h1{
+      font-size:70px;
+      margin-bottom:15px;
+    }
+
+    .hero-content h1 span{
+      color:#00f7ff;
+    }
+
+    .typing{
+      font-size:28px;
+      color:#00f7ff;
+      height:40px;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      max-width:700px;
+      line-height:1.7;
+      margin:auto;
+      color:#cfcfcf;
+    }
+
+    .btns{
+      margin-top:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      margin:10px;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .primary{
+      background:#00f7ff;
+      color:black;
+    }
+
+    .secondary{
+      border:2px solid #00f7ff;
+      color:#00f7ff;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px #00f7ff;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:100px 10%;
+    }
+
+    .title{
+      text-align:center;
+      font-size:42px;
+      margin-bottom:60px;
+      color:#00f7ff;
+    }
+
+    /* ABOUT */
+
+    .about{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.1);
+      transition:0.3s;
+    }
+
+    .about-card:hover{
+      transform:translateY(-10px);
+      border-color:#00f7ff;
+    }
+
+    /* SKILLS */
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:25px;
+    }
+
+    .skill-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:18px;
+      text-align:center;
+      transition:0.3s;
+      border:1px solid transparent;
+    }
+
+    .skill-card:hover{
+      transform:scale(1.05);
+      border-color:#00f7ff;
+      box-shadow:0 0 25px rgba(0,247,255,0.4);
+    }
+
+    .skill-card i{
+      font-size:45px;
+      color:#00f7ff;
+      margin-bottom:15px;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline{
+      position:relative;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .timeline::after{
+      content:'';
+      position:absolute;
+      width:4px;
+      background:#00f7ff;
+      top:0;
+      bottom:0;
+      left:50%;
+      margin-left:-2px;
+    }
+
+    .container{
+      padding:20px 40px;
+      position:relative;
+      width:50%;
+    }
+
+    .container.left{
+      left:0;
+    }
+
+    .container.right{
+      left:50%;
+    }
+
+    .content{
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:15px;
+    }
+
+    .content h3{
+      color:#00f7ff;
+      margin-bottom:10px;
+    }
+
+    /* PROJECTS */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.05);
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 25px rgba(0,247,255,0.4);
+    }
+
+    .project-content{
+      padding:25px;
+    }
+
+    .project-content h3{
+      color:#00f7ff;
+      margin-bottom:15px;
+    }
+
+    /* CERTIFICATIONS */
+
+    .certs{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .cert-card{
+      padding:25px;
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      border-radius:20px;
+      transition:0.3s;
+    }
+
+    .cert-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 20px rgba(0,247,255,0.4);
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact-icons{
+      margin-top:30px;
+    }
+
+    .contact-icons a{
+      color:white;
+      font-size:30px;
+      margin:15px;
+      transition:0.3s;
+    }
+
+    .contact-icons a:hover{
+      color:#00f7ff;
+      transform:scale(1.2);
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      color:#aaa;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .hero-content h1{
+        font-size:45px;
+      }
+
+      .timeline::after{
+        left:20px;
+      }
+
+      .container{
+        width:100%;
+        padding-left:60px;
+        padding-right:20px;
+      }
+
+      .container.right{
+        left:0;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h2>Mohit Aman</h2>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Hi, I'm <span>Mohit Aman</span></h1>
+
+      <div class="typing" id="typing"></div>
+
+      <p>
+        Software Test Engineer skilled in Manual Testing, Automation Testing,
+        Selenium, Salesforce CRM QA, Tosca, TestNG, CI/CD integration,
+        Regression Testing, UAT, and Agile methodologies.
+      </p>
+
+      <div class="btns">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="https://drive.google.com/file/d/1BptQFUCi4cnw-FfSPXYAjLDoWtnNdbHX/view?usp=sharing" class="btn secondary">Download Resume</a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about">
+
+      <div class="about-card">
+        <h3>Professional Summary</h3>
+
+        <p>
+          Software Test Engineer with experience in manual testing,
+          automation testing, requirement analysis, defect lifecycle
+          management, Selenium automation, CRM testing, and CI/CD
+          integrated execution.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Education</h3>
+
+        <p>
+          MCA from Maulana Azad National Institute of Technology, Bhopal
+          with CGPA 8.05/10.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="title">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <i class="fa-solid fa-vial"></i>
+        <h3>Manual Testing</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-robot"></i>
+        <h3>Selenium</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-bug"></i>
+        <h3>Regression Testing</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>Salesforce CRM</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-code"></i>
+        <h3>Java</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-gears"></i>
+        <h3>Tosca</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>JMeter</h3>
+      </div>
+
+      <div class="skill-card">
+        <i class="fa-solid fa-terminal"></i>
+        <h3>CI/CD</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <h2 class="title">Experience</h2>
+
+    <div class="timeline">
+
+      <div class="container left">
+        <div class="content">
+          <h3>Software Engineer Trainee</h3>
+          <p>Pursuit Software | June 2025 - Present</p>
+          <br>
+          <p>
+            Worked on Salesforce CRM testing, Selenium automation,
+            regression testing, UAT, BRD review, and automation reporting.
+          </p>
+        </div>
+      </div>
+
+      <div class="container right">
+        <div class="content">
+          <h3>Software Engineer Intern</h3>
+          <p>Pursuit Software | April 2025 - May 2025</p>
+          <br>
+          <p>
+            Learned functional testing, Selenium basics, qTest,
+            TestSigma, Katalon Studio, and JMeter.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>UATNext QA Platform</h3>
+
+          <p>
+            Created 250+ automated and manual test cases using Selenium
+            Data Provider Framework with CI/CD integration.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>CP Mobile App QA</h3>
+
+          <p>
+            Performed end-to-end mobile application testing and identified
+            critical production blocking defects.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-content">
+          <h3>Salesforce CRM QA</h3>
+
+          <p>
+            Sole QA engineer responsible for complete Salesforce CRM
+            implementation testing and BRD validation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CERTIFICATIONS -->
+
+  <section id="certifications">
+
+    <h2 class="title">Certifications</h2>
+
+    <div class="certs">
+
+      <div class="cert-card">
+        <h3>Tosca AS1</h3>
+      </div>
+
+      <div class="cert-card">
+        <h3>Tosca AS2</h3>
+      </div>
+
+      <div class="cert-card">
+        <h3>TDS1</h3>
+      </div>
+
+      <div class="cert-card">
+        <h3>TDS2</h3>
+      </div>
+
+      <div class="cert-card">
+        <h3>JMeter Performance Testing</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <p>Email: mohit.aman1998@gmail.com</p>
+    <p>Phone: +91 7979732948</p>
+
+    <div class="contact-icons">
+
+      <a href="#">
+        <i class="fab fa-linkedin"></i>
+      </a>
+
+      <a href="#">
+        <i class="fab fa-github"></i>
+      </a>
+
+      <a href="mailto:mohit.aman1998@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Mohit Aman | QA Engineer Portfolio
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // TYPING EFFECT
+
+    const texts = [
+      "Software Test Engineer",
+      "Automation Tester",
+      "Salesforce CRM QA",
+      "Selenium Automation Engineer",
+      "Tosca Automation Specialist"
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+
+    (function type(){
+
+      if(count === texts.length){
+        count = 0;
+      }
+
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+
+      document.getElementById('typing').textContent = letter;
+
+      if(letter.length === currentText.length){
+        count++;
+        index = 0;
+        setTimeout(type, 1500);
+      } else {
+        setTimeout(type, 100);
+      }
+
+    }());
+
+    // SCROLL ANIMATION
+
+    const cards = document.querySelectorAll(
+      '.skill-card,.project-card,.cert-card,.about-card,.content'
+    );
+
+    window.addEventListener('scroll', () => {
+
+      cards.forEach(card => {
+
+        const position = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+
+        if(position < screenPosition){
+          card.style.opacity = 1;
+          card.style.transform = 'translateY(0)';
+        }
+
+      });
+
+    });
+
+    cards.forEach(card => {
+      card.style.opacity = 0;
+      card.style.transform = 'translateY(50px)';
+      card.style.transition = 'all 0.8s ease';
+    });
+
+  </script>
+
+</body>
+</html>
